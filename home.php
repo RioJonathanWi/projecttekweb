@@ -51,7 +51,7 @@
             </div>
         </div>
         <div class="col py-3">
-            Content area...
+            <div class="row"></div>
         </div>
     </div>
 </div>

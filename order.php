@@ -1,15 +1,9 @@
 <?php
-    require 'connect.php';
     session_start();
     $name = $_SESSION['name'];
-    if(isset($_SESSION['login'])){
-        
-    }else{
+    if(isset($_SESSION['login']) == ''){
         header('location: login.php');
-    }
-
-    $data = $pdo->query("SELECT COUNT(*) as total FROM orders");
-    $stmt = $data->fetch();
+    };
 ?>
 
 <!doctype html>
@@ -76,42 +70,26 @@
             </div>
         </div>
         <div class="col py-3">
-        <div class="mx-0 row row-cols-2 line-1">
-            <div class="col">
-                <div class="container item px-2">
-                    <div class="row p-3">
-                        <div class="box order-lg-2 col-12 col-lg-6 col-xl-2 d-flex justify-content-center align-items-center"
-                            style="background-color:#B6F0B0; border-radius: 15px;">
-                            <i class="fas fa-user fa-2xl"></i>
-                        </div>
-                        <div
-                            class="box-2 mt-3 mt-lg-0 order-lg-1 col-12 col-lg-6 col-xl-10 d-flex flex-column  justify-content-around">
-                            <h6 class="item-name">Welcome back</h6>
-                            <h3 class="item-qty mt-3" id='name'><?php echo $name?></h3>
-                        </div>
+            <div class="title">
+                <h1 style="color: white;">Order Tables</h1>
+            </div>
+            <div class="table-container">
+                <div class="container table" style="overflow-x:auto;">
+                    <div class="table-responsive" id="tableDiv">
+                        
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="container item px-2">
-                    <div class="row p-3">
-                        <div class="box order-lg-2 col-12 col-lg-6 col-xl-2 d-flex justify-content-center align-items-center"
-                            style="background-color:#3C7B8E; border-radius: 15px;">
-                            <i class="fa-solid fa-cart-shopping fa-2xl"></i>
-                        </div>
-                        <div
-                            class="box-2 mt-3 mt-lg-0 order-lg-1 col-12 col-lg-6 col-xl-10 d-flex flex-column  justify-content-around">
-                            <h6 class="item-name">Orders</h6>
-                            <h3 class="item-qty mt-3" id='Order'><?php echo $stmt['total']?></h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- end of line-1 -->
-                
         </div>
     </div>
 </div>
+    <script>
+        $(document).ready(function(){
+            $('#tableDiv').DataTable();
+        });
+
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   </body>

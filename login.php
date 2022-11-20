@@ -40,29 +40,9 @@
                 window.location.href = "home.php";
             }
 
-            function scaleCaptcha() {
-                // Width of the reCAPTCHA element, in pixels
-                var reCaptchaWidth = 200;
-                // Get the containing element's width
-                var containerWidth = $('.capt').width();
-                // Only scale the reCAPTCHA if it won't fit
-                // inside the container
-                if(reCaptchaWidth > containerWidth) {
-                    // Calculate the scale
-                    var captchaScale = containerWidth / reCaptchaWidth;
-                    captchaScale = captchaScale - (0.5 * captchaScale);
-                    // Apply the transformation
-                    $('.g-recaptcha').css({
-                    'transform':'scale('+captchaScale+')'
-                    });
-                }
-            }
-
         $('#Login').on('click', function () {
                 var email=$('#email').val();
                 var password=$('#password').val();
-                // var rrf = grecaptcha.getResponse();
-                // if (rrf!="")
                 if (true)
                 {
                     if(typeof(email) != "undefined" && email != null && email != "" && typeof(password) != "undefined" && password != null && password != "")

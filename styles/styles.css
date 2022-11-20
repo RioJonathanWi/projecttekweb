@@ -22,7 +22,7 @@ body{
   border-radius: 10px;
 }
 
-.fa-user{
+.fa-user, .fa-cart-shopping{
   color: #183153;
 }
 

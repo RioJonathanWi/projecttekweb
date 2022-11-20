@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $name = $_SESSION['name'];
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -38,7 +43,7 @@
                 <div class="dropdown pb-4">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                        <span class="d-none d-sm-inline mx-1">loser</span>
+                        <span class="d-none d-sm-inline mx-1"><?php $name ?></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                         <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -51,7 +56,11 @@
             </div>
         </div>
         <div class="col py-3">
-            <div class="row"></div>
+            <div class="row">
+                <div class="col-4">
+                    <h1>Hi</h1>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -101,7 +101,7 @@
                         </div>
                         <div
                             class="box-2 mt-3 mt-lg-0 order-lg-1 col-12 col-lg-6 col-xl-10 d-flex flex-column  justify-content-around">
-                            <h6 class="item-name">Orders</h6>
+                            <h6 class="item-name">Order</h6>
                             <h3 class="item-qty mt-3" id='Order'><?php echo $stmt['total']?></h3>
                         </div>
                     </div>

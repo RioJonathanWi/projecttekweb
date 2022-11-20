@@ -80,7 +80,7 @@
         </div>
         <div class="col py-3">
             <div class="title">
-                <h1 style="color: white;">Order Tables</h1>
+                <h1 style="color: white;">Order Table</h1>
             </div>
             <div class="table-container">
                 <div class="container table" style="overflow-x:auto;">

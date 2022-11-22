@@ -1,9 +1,12 @@
 <?php
     session_start();
     $name = $_SESSION['name'];
-    if(isset($_SESSION['login']) == ''){
+    if(isset($_SESSION['login'])){
+        
+    }else{
         header('location: login.php');
     };
+    
 ?>
 
 <!doctype html>

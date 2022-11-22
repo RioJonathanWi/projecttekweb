@@ -4,7 +4,7 @@
     $stmt = $pdo->query("SELECT * FROM orders")->fetchAll();
 
     $output ="";
-    $output .='<table id="logTable" class="table table-striped table-light py-3 w-100 text-center">
+    $output .='<table id="logTable" class="table table-striped table-light w-100 text-center">
         <thead>
             <tr>
                 <th>ID</th>

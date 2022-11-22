@@ -1,3 +1,10 @@
 .content{
     background-color: #222636;
 }
+
+.container{
+    background-color: white;
+    padding: 15px 5px 5px 5px;
+    border-radius: 10px;
+    margin-top: 10px;
+}

@@ -85,7 +85,7 @@
             <div class="title">
                 <h1 style="color: white;">Order Table</h1>
             </div>
-            <div class="container table" style="overflow-x:auto;">
+            <div class="container">
                 <div class="table-responsive" id="tableDiv">
                     
                 </div>
@@ -95,7 +95,8 @@
 </div>
     <script>
         $(document).ready(function(){
-            $('#logTable').DataTable();
+            $('#logTable').DataTable({
+            });
         });
 
         var updateTable = setInterval(function(){

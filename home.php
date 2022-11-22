@@ -97,7 +97,7 @@
                     <div class="row p-3">
                         <div class="box order-lg-2 col-12 col-lg-6 col-xl-2 d-flex justify-content-center align-items-center"
                             style="background-color:#3C7B8E; border-radius: 15px;">
-                            <i class="fa-solid fa-cart-shopping fa-2xl"></i>
+                            <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #183153;"></i>
                         </div>
                         <div
                             class="box-2 mt-3 mt-lg-0 order-lg-1 col-12 col-lg-6 col-xl-10 d-flex flex-column  justify-content-around">

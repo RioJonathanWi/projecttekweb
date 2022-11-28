@@ -87,7 +87,6 @@
             <main class="row overflow-auto">
                 <div class="col pt-4">
                     <h2 style="color: white">New Orders</h2>
-                    <button onclick="deleteData()">Test</button>
                     <div class="card-container" id="card-cont"></div>
                 </div>
             </main>
@@ -119,13 +118,30 @@
             
         }, 2000);
 
-        function deleteData(){
-            alert("test");
-        }
+        
 
         });
         
-        
+        function deleteData(id){
+            $.ajax({
+                type:"POST",
+                url: "api/deleteData.php",
+                data:{
+                    data_id: id
+                },
+                success: function(result){
+                    if(result == true){
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Data has been deleted',
+                            showConfirmButton: true,
+                            timer: 1500
+                        })
+                    }
+                }
+            })
+            
+        }
 
         
 

@@ -35,7 +35,7 @@ function test_input($data) {
                 $result = 1;
             } else if ($loginstmt->rowCount() == 0) {
                     //email or password is wrong
-                    $result = 0;
+                    $result = 2;
                 }
             }           
         }

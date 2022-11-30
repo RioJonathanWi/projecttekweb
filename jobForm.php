@@ -60,7 +60,7 @@ require 'connect.php';
                 foreach($stmt->fetchAll() as $row)
                 {
                     ?>
-                    <option value="<?php echo $row['id']?>">
+                    <option value="<?php echo $row['namaJobs']?>">
                         <?php echo $row['namaJobs'] ?>
                     </option>
                 <?php
@@ -68,13 +68,23 @@ require 'connect.php';
                 ?>
         </select>
     </div>
+    <div class="input-group mb-1">
+        <label for="">Upload Foto Diri</label>
+    </div>
     <div class="input-group">
-        <input type="file" class="form-control" id="file" placeholder="Upload CV" required>
+        <input type="file" class="form-control" name="pic" id="pic" placeholder="Upload Foto Diri" required>
+    </div>
+    <div id="notif" class="form-text mb-3">Max file size 10mb</div>
+    <div class="input-group mb-1">
+        <label for="">Upload CV</label>
+    </div>
+    <div class="input-group">
+        <input type="file" class="form-control" name="file" id="file" placeholder="Upload CV" required>
         
     </div>
     <div id="notif" class="form-text mb-3">Max file size 10mb</div>
 
-    <button class="btn btn-primary" id="btn-upload">Upload</button>
+    <button class="btn btn-primary mb-3" id="btn-upload">Upload</button>
     </div>
     <script>
         $(document).ready(function(){
@@ -86,8 +96,10 @@ require 'connect.php';
                 var number = document.getElementById("number").value;
                 var email = document.getElementById("email").value;
                 var jobs = document.getElementById("jobs").value;
-                var file = document.getElementById("file").value;
+                var pic = $("#pic")[0].files;
+                var file = $('#file')[0].files;
 
+                console.log(pic);
 
                 let fd = new FormData();
                 fd.append("nama", nama);
@@ -96,7 +108,8 @@ require 'connect.php';
                 fd.append("number", number);
                 fd.append("email", email);
                 fd.append("jobs", jobs);
-                fd.append("file", file);
+                fd.append("pic", pic[0]);
+                fd.append("file", file[0]);
 
 
                 $.ajax({
@@ -108,12 +121,20 @@ require 'connect.php';
                     cache: false,
                     enctype: 'multipart/form-data',
                     success:function(result){
-                        Swal.fire({
+                        if(result.result_code == 1){
+                            Swal.fire({
                             icon: 'success',
-                            title: result,
+                            title: result.message,
                             showConfirmButton: true,
                             timer: 1500
                         })
+                        } else if(result.result_code == 0){
+                            Swal.fire({
+                            icon: 'error',
+                            title: result.message,
+                            showConfirmButton: true
+                        })
+                        }
                     }
                 })
             })

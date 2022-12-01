@@ -123,12 +123,25 @@
                     <p class="mt-2"><?php echo $row['job_id']?></p>
                 <a class="mt-2" href="uploads/CV<?php echo $row['fileCV']?>">Curriculum Vitae</a>
                 </div>
+                <br>
                 
+                <select class="form-select mt-2" id="tgl_interview" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+                    <option value="">Pilih Tanggal Interview yang Tersedia</option>
+                    <?php 
+                        $qry3 = "SELECT * FROM aval_interview";
+                        $stmt3 = $pdo->query($qry3);
+                        foreach($stmt3 as $row3){
+                            ?>
+                            <option value="<?php echo $string = str_replace(' ', '', $row3['tanggal_interview']);?>"><?php echo $row3['tanggal_interview']?></option>
+                        <?php
+                        }
+                    ?>
+                </select>
                 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success">Apply</button>
+                <button type="button" class="btn btn-success" onclick="apply(<?php echo $row['id']?>)">Apply</button>
             </div>
             </div>
         </div>
@@ -168,21 +181,31 @@
 
         });
         
-        function deleteData(id){
+
+        function apply(id){
+            $tgl = $("#tgl_interview").val();
             $.ajax({
                 type:"POST",
-                url: "api/deleteData.php",
+                url: "api/applyJobs.php",
                 data:{
-                    data_id: id
+                    id_jobs: id,
+                    tanggal_interview: $tgl
                 },
                 success: function(result){
-                    if(result == true){
+                    if(result == 1){
                         Swal.fire({
                             icon: 'success',
-                            title: 'Data has been deleted',
+                            title: 'Applicants has been applied',
                             showConfirmButton: true,
                             timer: 1500
                         })
+                    }else if(result == 2){
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'There has been an error',
+                            showConfirmButton: true,
+                            timer: 1500
+                        }) 
                     }
                 }
             })

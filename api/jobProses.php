@@ -53,6 +53,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $insert_data = $pdo->prepare("INSERT INTO `jobs` SET  nama = ?, tanggal_lahir = ?, alamat = ?, nomor_telepon = ?, email = ?, job_id = ?, foto_diri = ?, fileCV = ?, tanggal_submit = ?");
         $insert_data->execute([$nama, $date, $address, $number, $email, $jobs, $filenamenew1 ,$filenamenew2, $date]);
 
+        $insert_data2 = $pdo->prepare("INSERT INTO `jobs_data` SET  nama = ?, tanggal_lahir = ?, alamat = ?, nomor_telepon = ?, email = ?, job_id = ?, foto_diri = ?, fileCV = ?, tanggal_submit = ?");
+        $insert_data2->execute([$nama, $date, $address, $number, $email, $jobs, $filenamenew1 ,$filenamenew2, $date]);
+
         if($insert_data){
             $message = 'Data berhasil dimasukkan!';
             $result = 1;

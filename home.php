@@ -108,7 +108,60 @@
                 </div>
             </div>
         </div>
+        <div class="mx-0 row mt-4 grid" style="color:black;">
+            <div class="col-sm-6 col-lg-6 mb-4">
+
+                <div class="new-jobs card px-lg-2" style="color:white;">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 jobs">New Jobs Applications</h5>
+                        <?php
+                            $qry2 = "SELECT * FROM jobs";
+                            $stmt2 = $pdo->query($qry2);
+
+                            foreach($stmt2 as $row2){
+                                ?>
+                                <div class="row">
+                                    <div class="col-8 col-lg-7">
+                                        <i class="fa-solid fa-briefcase"></i>
+                                        <h6 class="d-inline item-name ms-lg-2"><?php echo $row2['nama']?></h6>
+                                    </div>
+                                </div>
+                                <hr>
+                                <?php
+                            }
+                        ?>
+                        
+                        
+                    </div>
                 </div>
+            </div> <!-- end of new Jobs -->
+            <div class="col-sm-6 col-lg-6 mb-4">
+
+                <div class="new-orders card px-lg-2" style="color:white;">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 jobs">New Orders</h5>
+                        <?php
+                            $qry3 = "SELECT * FROM orders";
+                            $stmt3 = $pdo->query($qry3);
+
+                            foreach($stmt3 as $row3){
+                                ?>
+                                <div class="row">
+                                    <div class="col-8 col-lg-7">
+                                        <i class="fa-solid fa-basket-shopping"></i>
+                                        <h6 class="d-inline item-name ms-lg-2"><?php echo $row3['nama_produk']?></h6>
+                                    </div>
+                                </div>
+                                <hr>
+                                <?php
+                            }
+                        ?>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
             </main>
         </div>
     </div>

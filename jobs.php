@@ -125,7 +125,7 @@
                 </div>
                 <br>
                 
-                <select class="form-select mt-2" id="tgl_interview" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+                <select class="form-select mt-2" id="tgl_interview" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();' required>
                     <option value="">Pilih Tanggal Interview yang Tersedia</option>
                     <?php 
                         $qry3 = "SELECT * FROM aval_interview";
@@ -141,6 +141,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" onclick="reject(<?php echo $row['id']?>)" >Reject</button>
                 <button type="button" class="btn btn-success" onclick="apply(<?php echo $row['id']?>)">Apply</button>
             </div>
             </div>
@@ -180,6 +181,27 @@
         
 
         });
+        
+        function reject(id){
+            $.ajax({
+                type:"POST",
+                url: "api/reject.php",
+                data:{
+                    data_id: id
+                },
+                success: function(result){
+                    if(result == true){
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Applicants has been rejected',
+                            showConfirmButton: true,
+                            timer: 1500
+                        })
+                    }
+                }
+            })
+            
+        }
         
 
         function apply(id){

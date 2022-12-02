@@ -69,6 +69,14 @@
                         <a href="message.php" class="nav-link px-0 align-middle">
                         <i class="fa-solid fa-message"></i><span class="ms-1 d-none d-sm-inline"></span>Message</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="applied.php" class="nav-link px-0 align-middle">
+                        <i class="fa-solid fa-square-check"></i><span class="ms-1 d-none d-sm-inline"></span>Accepted Applicants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="acceptedOrder.php" class="nav-link px-0 align-middle">
+                        <i class="fa-solid fa-cart-plus"></i><span class="ms-1 d-none d-sm-inline"></span>Accepted Orders</a>
+                    </li>
                 </ul>
                 <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -228,6 +236,13 @@
                             showConfirmButton: true,
                             timer: 1500
                         }) 
+                    } else if(result == 0){
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Set Interview Schedule',
+                            showConfirmButton: true,
+                            timer: 1500
+                        })
                     }
                 }
             })

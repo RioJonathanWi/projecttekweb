@@ -1,0 +1,12 @@
+.content{
+    background-color: #222636;
+}
+
+.item-name {
+    text-transform:uppercase;
+  }
+
+  .card{
+    background-color: #293041;
+    color: white;
+  }

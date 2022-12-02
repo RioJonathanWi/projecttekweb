@@ -91,7 +91,7 @@ require 'connect.php';
 
             $("#btn-upload").on("click", function(){
                 var nama = document.getElementById("name").value;
-                var date = document.getElementById("date").value;
+                var dates = document.getElementById("date").value;
                 var address = document.getElementById("address").value;
                 var number = document.getElementById("number").value;
                 var email = document.getElementById("email").value;
@@ -103,7 +103,7 @@ require 'connect.php';
 
                 let fd = new FormData();
                 fd.append("nama", nama);
-                fd.append("date", date);
+                fd.append("dates", dates);
                 fd.append("address", address);
                 fd.append("number", number);
                 fd.append("email", email);
@@ -137,6 +137,8 @@ require 'connect.php';
                         }
                     }
                 })
+
+                // location.reload();
             })
 
         })

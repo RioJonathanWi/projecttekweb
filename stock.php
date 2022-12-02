@@ -68,6 +68,14 @@
                         <a href="message.php" class="nav-link px-0 align-middle">
                         <i class="fa-solid fa-message"></i><span class="ms-1 d-none d-sm-inline"></span>Message</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="applied.php" class="nav-link px-0 align-middle">
+                        <i class="fa-solid fa-square-check"></i><span class="ms-1 d-none d-sm-inline"></span>Accepted Applicants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="acceptedOrder.php" class="nav-link px-0 align-middle">
+                        <i class="fa-solid fa-cart-plus"></i><span class="ms-1 d-none d-sm-inline"></span>Accepted Orders</a>
+                    </li>
                 </ul>
                 <hr>
                 <div class="dropdown pb-4">

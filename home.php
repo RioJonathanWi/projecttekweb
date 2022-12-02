@@ -58,6 +58,14 @@
                         <a href="message.php" class="nav-link px-0 align-middle">
                         <i class="fa-solid fa-message"></i><span class="ms-1 d-none d-sm-inline"></span>Message</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="applied.php" class="nav-link px-0 align-middle">
+                        <i class="fa-solid fa-square-check"></i><span class="ms-1 d-none d-sm-inline"></span>Accepted Applicants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="acceptedOrder.php" class="nav-link px-0 align-middle">
+                        <i class="fa-solid fa-cart-plus"></i><span class="ms-1 d-none d-sm-inline"></span>Accepted Orders</a>
+                    </li>
                 </ul>
                 <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -101,7 +109,7 @@
                         </div>
                         <div
                             class="box-2 mt-3 mt-lg-0 order-lg-1 col-12 col-lg-6 col-xl-10 d-flex flex-column  justify-content-around">
-                            <h6 class="item-name">Order</h6>
+                            <h6 class="item-name">New Orders</h6>
                             <h3 class="item-qty mt-3" id='Order'><?php echo $stmt['total']?></h3>
                         </div>
                     </div>
@@ -171,35 +179,3 @@
   </body>
 </html>
 
-<div class="mx-0 row row-cols-2 line-1">
-            <div class="col">
-                <div class="container item px-2">
-                    <div class="row p-3">
-                        <div class="box order-lg-2 col-12 col-lg-6 col-xl-2 d-flex justify-content-center align-items-center"
-                            style="background-color:#B6F0B0; border-radius: 15px;">
-                            <i class="fas fa-user fa-2xl"></i>
-                        </div>
-                        <div
-                            class="box-2 mt-3 mt-lg-0 order-lg-1 col-12 col-lg-6 col-xl-10 d-flex flex-column  justify-content-around">
-                            <h6 class="item-name">Welcome back</h6>
-                            <h3 class="item-qty mt-3" id='name'><?php echo $name?></h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="container item px-2">
-                    <div class="row p-3">
-                        <div class="box order-lg-2 col-12 col-lg-6 col-xl-2 d-flex justify-content-center align-items-center"
-                            style="background-color:#3C7B8E; border-radius: 15px;">
-                            <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #183153;"></i>
-                        </div>
-                        <div
-                            class="box-2 mt-3 mt-lg-0 order-lg-1 col-12 col-lg-6 col-xl-10 d-flex flex-column  justify-content-around">
-                            <h6 class="item-name">Order</h6>
-                            <h3 class="item-qty mt-3" id='Order'><?php echo $stmt['total']?></h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> 

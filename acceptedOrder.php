@@ -21,7 +21,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/styleOrder.css">
+    <link rel="stylesheet" href="styles/styleAccepted.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -39,15 +39,15 @@
   </head>
   <body>
     
-  <div class="container-fluid overflow-hidden">
-    <div class="row vh-100 overflow-auto">
-        <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-dark d-flex sticky-top">
-            <div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white">
-                <a href="/" class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-5">Menu</span>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="home.php" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline mt-4">Menu</span>
                 </a>
-                <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start" id="menu">
-                <li class="nav-item">
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
                         <a href="home.php" class="nav-link align-middle px-0">
                         <i class="fas fa-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                         </a>
@@ -77,115 +77,68 @@
                         <i class="fa-solid fa-cart-plus"></i><span class="ms-1 d-none d-sm-inline"></span>Accepted Orders</a>
                     </li>
                 </ul>
-                <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
+                <hr>
+                <div class="dropdown pb-4">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-square-user"></i>
                         <span class="d-none d-sm-inline mx-1"><?php echo $name ?></span>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                         <li><a class="dropdown-item" href="#">Profile</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        <li><a class="dropdown-item" href="logout.php">Sign out</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="col d-flex flex-column h-sm-100 content">
-            <main class="row overflow-auto">
-                <div class="col pt-4">
-                    <h2 style="color: white">New Orders</h2>
-                    <div class="card-container" id="card-cont"></div>
+        <div class="col py-3 content">
+            <div class="title">
+                <h1 style="color: white;">Accepted Orders</h1>
+            </div>
+            <div class="container">
+                <div class="table-responsive" id="tableDiv">
                 </div>
-            </main>
+            </div>
         </div>
     </div>
 </div>
     <script>
         $(document).ready(function(){
-            // var xmlhttp = new xXMLHttpRequest();
-            // xmlhttp.onreadystatechange = function(){
-            //     if(this.readyState == 4 && this.status == 200){
-            //         $("#card-cont").html(this.responseText);
-            //     }
-            // };
+            $('#logTable').DataTable({
+            });
+        });
 
-            // xmlhttp.open("POST", "api/cardOrder.php", true);
-            // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            // xmlhttp.send(null);
-
-            var updateTable = setInterval(function(){
+        var updateTable = setInterval(function(){
             $.ajax({
                 type: "POST",
-                url: "api/cardOrder.php",
+                url: "api/acceptedOrder.php",
                 success: function(table){
-                    document.getElementById("card-cont").innerHTML = table;
-                    
+                    document.getElementById("tableDiv").innerHTML = table;
                 }
             })
-            
         }, 1000);
 
-        
-
-        });
-        
-        function deleteData(id){
+        function changeStatus(id){
             $.ajax({
                 type:"POST",
-                url: "api/deleteData.php",
-                data:{
-                    data_id: id
+                url: "api/changeStatus.php",
+                data: {
+                    id_order: id
                 },
-                success: function(result){
-                    if(result == true){
-                        Swal.fire({
+                success: function(status){
+                        if(status == 1){
+                            Swal.fire({
                             icon: 'success',
-                            title: 'Data has been deleted',
+                            title: 'Status has been changed',
                             showConfirmButton: true,
                             timer: 1500
                         })
-                    }
+                        }
                 }
             })
-            
         }
-
-        function apply(id){
-            $.ajax({
-                type:"POST",
-                url: "api/applyOrder.php",
-                data:{
-                    id_order: id,
-                },
-                success: function(result){
-                    if(result == 1){
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Order has been applied',
-                            showConfirmButton: true,
-                            timer: 1500
-                        })
-                    }else if(result == 2){
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'There has been an error',
-                            showConfirmButton: true,
-                            timer: 1500
-                        }) 
-                    } else if(result == 0){
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Set Interview Schedule',
-                            showConfirmButton: true,
-                            timer: 1500
-                        })
-                    }
-                }
-            })
-            
-        }
-
 
         
 

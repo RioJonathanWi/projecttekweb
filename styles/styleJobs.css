@@ -35,13 +35,13 @@
 }
 
 .badge span {
-    background-color: #fffbec;
-    width: 60px;
+    background-color: #ffd641;
+    width: 110px;
     height: 25px;
     padding-bottom: 3px;
     border-radius: 5px;
     display: flex;
-    color: #fed85d;
+    color: black;
     justify-content: center;
     align-items: center
 }

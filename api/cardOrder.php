@@ -19,7 +19,7 @@
             <h5>Total Price: IDR '.$total.'</h5>
         </div>
         <div class="btn-wrapper">
-            <button class="btn" id="btn-accept" value="'.$row['id'].'">Accept</button>
+            <button class="btn" id="btn-accept" value="'.$row['id'].'"onclick="apply('.$row['id'].')">Accept</button>
             <button class="btn" id="btn-delete" value="'.$row['id'].'" onclick="deleteData('.$row['id'].')">Delete</button>
         </div>
         </div>

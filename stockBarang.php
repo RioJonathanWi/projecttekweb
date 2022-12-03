@@ -1,15 +1,12 @@
 <?php
-    require 'connect.php';
     session_start();
-    $name = $_SESSION['name'];
+    // $name = $_SESSION['name'];
     if(isset($_SESSION['login'])){
         
     }else{
         header('location: login.php');
-    }
-
-    $data = $pdo->query("SELECT COUNT(*) as total FROM orders");
-    $stmt = $data->fetch();
+    };
+    
 ?>
 
 <!doctype html>
@@ -24,7 +21,20 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/styleOrder.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Datatable -->
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.js"></script>
+
     <title>Mimin</title>
   </head>
   <body>
@@ -81,101 +91,45 @@
                 </div>
             </div>
         </div>
-        <div class="col d-flex flex-column h-sm-100">
+        <div class="col d-flex flex-column h-sm-100 content">
             <main class="row overflow-auto">
                 <div class="col pt-4">
-                <div class="mx-0 row row-cols-2 line-1">
-            <div class="col">
-                <div class="container item px-2">
-                    <div class="row p-3">
-                        <div class="box order-lg-2 col-12 col-lg-6 col-xl-2 d-flex justify-content-center align-items-center"
-                            style="background-color:#B6F0B0; border-radius: 15px;">
-                            <i class="fas fa-user fa-2xl"></i>
-                        </div>
-                        <div
-                            class="box-2 mt-3 mt-lg-0 order-lg-1 col-12 col-lg-6 col-xl-10 d-flex flex-column  justify-content-around">
-                            <h6 class="item-name">Welcome back</h6>
-                            <h3 class="item-qty mt-3" id='name'><?php echo $name?></h3>
-                        </div>
-                    </div>
+                    <h2 style="color: white">Stock Barang</h2>
+                    <div class="card-container" id="card-cont"></div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="container item px-2">
-                    <div class="row p-3">
-                        <div class="box order-lg-2 col-12 col-lg-6 col-xl-2 d-flex justify-content-center align-items-center"
-                            style="background-color:#3C7B8E; border-radius: 15px;">
-                            <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #183153;"></i>
-                        </div>
-                        <div
-                            class="box-2 mt-3 mt-lg-0 order-lg-1 col-12 col-lg-6 col-xl-10 d-flex flex-column  justify-content-around">
-                            <h6 class="item-name">New Orders</h6>
-                            <h3 class="item-qty mt-3" id='Order'><?php echo $stmt['total']?></h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="mx-0 row mt-4 grid" style="color:black;">
-            <div class="col-sm-6 col-lg-6 mb-4">
-
-                <div class="new-jobs card px-lg-2" style="color:white;">
-                    <div class="card-body">
-                        <h5 class="card-title mb-3 jobs">New Jobs Applications</h5>
-                        <?php
-                            $qry2 = "SELECT * FROM jobs";
-                            $stmt2 = $pdo->query($qry2);
-
-                            foreach($stmt2 as $row2){
-                                ?>
-                                <div class="row">
-                                    <div class="col-8 col-lg-7">
-                                        <i class="fa-solid fa-briefcase"></i>
-                                        <h6 class="d-inline item-name ms-lg-2"><?php echo $row2['nama']?></h6>
-                                    </div>
-                                </div>
-                                <hr>
-                                <?php
-                            }
-                        ?>
-                        
-                        
-                    </div>
-                </div>
-            </div> <!-- end of new Jobs -->
-            <div class="col-sm-6 col-lg-6 mb-4">
-
-                <div class="new-orders card px-lg-2" style="color:white;">
-                    <div class="card-body">
-                        <h5 class="card-title mb-3 jobs">New Orders</h5>
-                        <?php
-                            $qry3 = "SELECT * FROM orders";
-                            $stmt3 = $pdo->query($qry3);
-
-                            foreach($stmt3 as $row3){
-                                ?>
-                                <div class="row">
-                                    <div class="col-8 col-lg-7">
-                                        <i class="fa-solid fa-basket-shopping"></i>
-                                        <h6 class="d-inline item-name ms-lg-2"><?php echo $row3['nama_produk']?></h6>
-                                    </div>
-                                </div>
-                                <hr>
-                                <?php
-                            }
-                        ?>
-                        
-                        
-                    </div>
-                </div>
-            </div>
-            
             </main>
         </div>
     </div>
 </div>
+    <script>
+        $(document).ready(function(){
+            // var xmlhttp = new xXMLHttpRequest();
+            // xmlhttp.onreadystatechange = function(){
+            //     if(this.readyState == 4 && this.status == 200){
+            //         $("#card-cont").html(this.responseText);
+            //     }
+            // };
+
+            // xmlhttp.open("POST", "api/cardOrder.php", true);
+            // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            // xmlhttp.send(null);
+
+            var updateTable = setInterval(function(){
+            $.ajax({
+                type: "POST",
+                url: "api/stockProses.php",
+                success: function(table){
+                    document.getElementById("card-cont").innerHTML = table;
+                    
+                }
+            })
+            
+        }, 1000);
+        });
+        
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   </body>
 </html>
-

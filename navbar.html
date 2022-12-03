@@ -24,19 +24,22 @@
             background-color: #D8D8D8;
         }
 
-        .navbar-nav{
-            justify-content: center;
-        }
-
         .nav-link{
             font-family: 'Lemon/Milk light', sans-serif;
             font-style: normal;
             font-size: 25px;
-            margin: 10px;
-            margin-left: 140px;
+            /* margin: 10px;
+            margin-left: 140px; */
             align-items: center;
         }
 
+        @media(max-width:991.98px) {
+            .navbar ul{
+                text-align:center;    
+            }
+        }
+
+    
         .bg {
             background-image: url('assets/bg.jpg');
             background-size: cover;
@@ -67,14 +70,18 @@
         }
 
         .text-3{
-            margin-top: 300px;
-            margin-left: 0px;
+            margin-top: 150px;
+            margin-left: 100px;
+            font-size: 20px;
         }
 
+        .text-4{
+            font-size: 20px;
+            margin-top: 149px;
+        }
         
-        .container{
-            margin-left: 50px;
-            /* margin-top: 400px; */
+        .containerr{
+            margin-left: 100px;
         }
 
         .get{
@@ -87,10 +94,27 @@
             display: inline;
         }
 
+        .explore{
+            text-decoration: none;
+            color: white;
+            font-family: 'Lemon/Milk light', sans-serif;
+            margin-top: 10px;
+            background-color: #4A5358;
+            padding: 30px;
+            display: inline;
+        }
+
+        .explore:hover{
+            color: aquamarine;
+        }
+        
         .get:hover{
             color: aquamarine;
         }
 
+        .active:hover{
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -102,8 +126,8 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav navbar-center me-auto mb-2 mb-lg-0">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">SHOP</a>
                     </li>
@@ -128,16 +152,16 @@
     </nav>
 
     <div class="bg">
-        <div class="container">
+        <div class="container containerr">
             <h2 class="text">THE MANTAB GAN BACKPACK</h2> <br>
             <p class="text-2">THE MOST HYPE BACKPACK IN PETRA</p>
         </div>
 
-        <div class="row container">
-            <h4 class="text-3 col-4"><a class="get" href="">GET YOUR OWN</a></h4>
-            <h4 class="text-3 col-4"><a class="" href="#">EXPLORE CATALOG</a></h4>
+        <div class="row">
+            <h4 class="text-3 col-2"><a class="get" href="">GET YOUR OWN</a></h4>
+            <h4 class="text-4 col-3"><a class="explore" href="#">EXPLORE CATALOG</a></h4>
         </div>
-    </div> -->
+    </div>
 
 </body>
 

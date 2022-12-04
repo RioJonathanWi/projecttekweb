@@ -3,7 +3,7 @@ require "../connect.php";
 $user = $pdo->query("SELECT * FROM stock")->fetchAll();
 
 $tabel = "";
-$tabel .='<table id="logTable" class="table table-striped table-light w-100 text-center">
+$tabel .='<table class="table table-striped table-dark w-100 text-center" id="logTable" >
     <thead>
         <tr>
             <th>ID</th>

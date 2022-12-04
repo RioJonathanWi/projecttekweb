@@ -1,6 +1,5 @@
 <?php
     require "connect.php";
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +17,8 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous">
     </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700');
@@ -70,19 +71,66 @@
 
     </div>
     <div class="container mt-5">
-        
-        <label for="" >FULL NAME</label>
-        <input type="text" class="form-control input"style="background-color:#D9D9D9">
+    <!-- <div class="alert alert-success alert-dismissible" id="success" style="display:none;">
+	  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+	</div> -->
+        <form id="form" action="insertContactUs.php" method="POST">
+            <div  class="form-group">
+                <label>FULL NAME</label>
+                <input name="name" type="text" class="form-control input"style="background-color:#D9D9D9">
+            </div>
+            
+            <div class="form-group">
+                <label>EMAIL</label>
+                <input name="email" type="text" class="form-control input"style="background-color:#D9D9D9;">
+            </div>
 
-        <label for="" >EMAIL</label>
-        <input type="text" class="form-control input"style="background-color:#D9D9D9;">
+            <div class="form-group">
+                <label>MESSAGE</label>
+                <input name="msg" type="text" class="form-control input"style="background-color:#D9D9D9;">
+            </div>            
 
-        <label for="" >MESSAGE</label>
-        <input type="text" class="form-control input"style="background-color:#D9D9D9;">
-
-        <button type="submit" class="btn mt-2 " style="background-color:#4A5358;"><span style="color:white">SEND MESSAGE</span></button>
-        
+            <button name="submit" type="submit" class="btn mt-2 " style="background-color:#4A5358;"><span style="color:white">SEND MESSAGE</span></button>
+        </form>
     </div>
-    
 </body>
 </html>
+
+<!-- <script>
+    $(document).ready(function() {
+    $('#submit').on('click', function() {
+    $("#submit").attr("disabled", "disabled");
+    var name = $('#name').val();
+    var email = $('#email').val();
+    var msg = $('#msg').val();
+    if(name!="" && email!="" && msg!=""){
+        $.ajax({
+            url: "contactus_ajax.php",
+            type: "POST",
+            data: {
+                name: name,
+                email: email,
+                msg: msg,			
+            },
+            cache: false,
+            // success: function(dataResult){
+            //     var dataResult = JSON.parse(dataResult);
+            //     if(dataResult.statusCode==200){
+            //         $("#submit").removeAttr("disabled");
+            //         $('#form').find('input:text').val('');
+            //         $("#success").show();
+            //         $('#success').html('Data added successfully !'); 						
+            //     }
+            //     else if(dataResult.statusCode==201){
+            //         alert("Error occured !");
+            //     }
+                
+            // }
+        });
+    }
+    else{
+        alert('Please fill all the field !');
+    }
+    });
+    });
+</script> -->

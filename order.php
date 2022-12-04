@@ -61,7 +61,7 @@
                         <i class="fa-solid fa-note-sticky"></i> <span class="ms-1 d-none d-sm-inline">Jobs</span> </a>
                     </li>
                     <li class="nav-item">
-                        <a href="stock.php" class="nav-link px-0 align-middle">
+                        <a href="stockBarang.php" class="nav-link px-0 align-middle">
                         <i class="fa-solid fa-floppy-disk"></i> <span class="ms-1 d-none d-sm-inline">Stock</span> </a>
                     </li>
                     <li class="nav-item">

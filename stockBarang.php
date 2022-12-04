@@ -1,6 +1,6 @@
 <?php
     session_start();
-    // $name = $_SESSION['name'];
+    $name = $_SESSION['name'];
     if(isset($_SESSION['login'])){
         
     }else{
@@ -21,7 +21,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/styleOrder.css">
+    <link rel="stylesheet" href="styles/styleStock.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -95,24 +95,46 @@
             <main class="row overflow-auto">
                 <div class="col pt-4">
                     <h2 style="color: white">Stock Barang</h2>
-                    <div class="card-container" id="card-cont"></div>
+                    <div class="card-container mt-3" id="card-cont"></div>
+                    <button class="btn btn-primary mx-2 mb-4 mt-3" style="padding: 5px;" data-bs-toggle="modal" data-bs-target="#tambahStock">Tambah Stock</button>
                 </div>
             </main>
         </div>
     </div>
 </div>
+<div class="modal fade" id="tambahStock" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Tambah Stock</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="namaProduk" class="form-label">Product Name</label>
+                <input type="text" class="form-control" id="namaProduk" placeholder="Product Name">
+            </div>
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Quantity</label>
+                <input type="text" class="form-control" id="quantity" placeholder="Quantity">
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="text" class="form-control" id="price" placeholder="Quantity">
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="tambah">Tambah</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
     <script>
         $(document).ready(function(){
-            // var xmlhttp = new xXMLHttpRequest();
-            // xmlhttp.onreadystatechange = function(){
-            //     if(this.readyState == 4 && this.status == 200){
-            //         $("#card-cont").html(this.responseText);
-            //     }
-            // };
-
-            // xmlhttp.open("POST", "api/cardOrder.php", true);
-            // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            // xmlhttp.send(null);
+            
 
             var updateTable = setInterval(function(){
             $.ajax({
@@ -125,6 +147,44 @@
             })
             
         }, 1000);
+
+        $('#logTable').DataTable();
+
+        $("#tambah").on("click", function(){
+            var namaProduk = $("#namaProduk").val();
+            var quantity = $("#quantity").val();
+            var price = $("#price").val();
+
+            $.ajax({
+                type:"POST",
+                url: "api/tambahStock.php",
+                data:{
+                    namaProduk: namaProduk,
+                    quantity: quantity,
+                    price: price
+                },
+                success: function(result){
+                    if(result == 1){
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Stock has been added',
+                            showConfirmButton: true,
+                            timer: 1500
+                        })
+                    }else if(result == 2){
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'There has been an error. Try Again!',
+                            showConfirmButton: true,
+                            timer: 1500
+                        })
+                    }
+                }
+
+
+            })
+        })
+            
         });
         
 

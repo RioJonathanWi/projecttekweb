@@ -95,7 +95,7 @@
             <main class="row overflow-auto">
                 <div class="col pt-4">
                     <h2 style="color: white">Message</h2>
-                    <div class="card-container" id="card-cont"></div>
+                    <div class="card-container row" id="card-cont"></div>
                 </div>
             </main>
         </div>
@@ -103,17 +103,6 @@
 </div>
     <script>
         $(document).ready(function(){
-            // var xmlhttp = new xXMLHttpRequest();
-            // xmlhttp.onreadystatechange = function(){
-            //     if(this.readyState == 4 && this.status == 200){
-            //         $("#card-cont").html(this.responseText);
-            //     }
-            // };
-
-            // xmlhttp.open("POST", "api/cardOrder.php", true);
-            // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            // xmlhttp.send(null);
-
             var updateTable = setInterval(function(){
             $.ajax({
                 type: "POST",

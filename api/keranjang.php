@@ -7,21 +7,21 @@
     $price = $_POST['price'];
 
     $query = "SELECT * FROM keranjang WHERE name = ?";
-    $stmt = $conn->prepare($query);
+    $stmt = $pdo->prepare($query);
     $stmt->execute([$name]); 
 
     if($stmt->rowCount()==1){
         $qry = "UPDATE keranjang SET quantity = quantity+1 WHERE name = ?";
-        $stmt2 = $conn->prepare($qry);
+        $stmt2 = $pdo->prepare($qry);
         $stmt2->execute([$name]); 
 
     } else if ($stmt->rowCount()==0){
         $qry = "INSERT INTO keranjang SET name = ? , quantity = ? , price = ?";
-        $stmt2 = $conn->prepare($qry);
+        $stmt2 = $pdo->prepare($qry);
         $stmt2->execute([$name, 1, $price]);
     }
 
-    $data = $conn->query("SELECT * FROM keranjang")->fetchAll();
+    $data = $pdo->query("SELECT * FROM keranjang")->fetchAll();
         foreach ($data as $row){
             $output .='
             <tr>

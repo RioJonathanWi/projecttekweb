@@ -1,6 +1,6 @@
 <?php
 require "../connect.php";
-$user = $pdo->query("SELECT * FROM messagee")->fetchAll();
+$user = $pdo->query("SELECT * FROM contactus")->fetchAll();
 
 $card = "";
     foreach($user as $row){

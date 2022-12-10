@@ -293,7 +293,7 @@
         if (nama != '' && alamat != '' && no_telp != ''){
           $('#isiDataModal').modal('hide')
           $.ajax({
-              url: "api/prosesOrder.php",
+              url: "api/prosesData.php",
               method: "POST",
               data: {
                   nama: nama,

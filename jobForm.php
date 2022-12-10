@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+    require 'connect.php';
 
 ?>
 
@@ -22,70 +22,120 @@ require 'connect.php';
     <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.js"></script>
-
+    <style>
+        body{
+            background-color: #222636;
+            color: white;
+        }
+    </style>
   </head>
   <body>
 
-    <div class="container">
-    <h2>Job Application</h2>
-    <h5>Please complete the form below to apply for position with us.</h5>
-    <hr>
-    <div class="input-group mb-3">
-        <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
-        <input type="text" class="form-control" id="name" placeholder="Full Name" required>
-    </div>
-    <div class="input-group mb-3">
-        <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
-        <input type="date" class="form-control" id="date" placeholder="Birth Date" required>
-    </div>
-    <div class="input-group mb-3">
-        <span class="input-group-text"><i class="fa-solid fa-location-dot"></i></span>
-        <input type="text" class="form-control" id="address" placeholder="Address" required>
-    </div>
-    <div class="input-group mb-3">
-        <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
-        <input type="text" class="form-control" id="number" placeholder="Phone Number" required>
-    </div>
-    <div class="input-group mb-3">
-        <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
-        <input type="text" class="form-control" id="email" placeholder="Email Address" required>
-    </div>
-    <div class="input-group mb-3">
-        <span class="input-group-text"><i class="fa-solid fa-briefcase"></i></span>
-        <select class="form-select" id="jobs" required>
-            <option value="">Applying for Position</option>
-            <?php 
-                $qry = "SELECT * FROM jobs_position";
-                $stmt = $pdo->query($qry);
-                foreach($stmt->fetchAll() as $row)
-                {
-                    ?>
-                    <option value="<?php echo $row['namaJobs']?>">
-                        <?php echo $row['namaJobs'] ?>
-                    </option>
-                <?php
-                }
-                ?>
-        </select>
-    </div>
-    <div class="input-group mb-1">
-        <label for="">Upload Foto Diri</label>
-    </div>
-    <div class="input-group">
-        <input type="file" class="form-control" name="pic" id="pic" placeholder="Upload Foto Diri" required>
-    </div>
-    <div id="notif" class="form-text mb-3">Max file size 10mb</div>
-    <div class="input-group mb-1">
-        <label for="">Upload CV</label>
-    </div>
-    <div class="input-group">
-        <input type="file" class="form-control" name="file" id="file" placeholder="Upload CV" required>
-        
-    </div>
-    <div id="notif" class="form-text mb-3">Max file size 10mb</div>
+    <div class="container-fluid mt-4 w-100 vh-100 d-flex flex-column justify-content-center align-items-center" >
+        <h2 class="text-center ">Job Application</h2>
+        <h5 class="text-center">Please complete the form below to apply for position with us.</h5>
+        <hr>
+        <div class ="row ">
+            <div class = "col-lg-4 col-1"></div>
+            <div class = "col-lg-4 col-10">
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                    <input type="text" class="form-control" id="name" placeholder="Full Name" required>
+                </div>
+            </div>
+            <div class = "col-lg-4 col-1"></div>
+            <div class = "col-lg-4 col-1"></div>
 
-    <button class="btn btn-primary mb-3" id="btn-upload">Upload</button>
+            <div class = "col-lg-4 col-10">
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
+                    <input type="date" class="form-control" id="date" placeholder="Birth Date" required>
+                </div>
+            </div>
+
+            <div class = "col-lg-4 col-1"></div>
+            <div class = "col-lg-4 col-1"></div>
+            <div class = "col-lg-4 col-10">
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa-solid fa-location-dot"></i></span>
+                    <input type="text" class="form-control" id="address" placeholder="Address" required>
+                </div>
+            </div>
+
+            <div class = "col-lg-4 col-1"></div>
+            <div class = "col-lg-4 col-1"></div>
+            <div class = "col-lg-4 col-10">
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                    <input type="text" class="form-control" id="number" placeholder="Phone Number" required>
+                </div>
+            </div>
+
+            <div class = "col-lg-4 col-1"></div>
+            <div class = "col-lg-4 col-1"></div>
+            <div class = "col-lg-4 col-10">
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                    <input type="text" class="form-control" id="email" placeholder="Email Address" required>
+                </div>
+            </div>
+
+            <div class = "col-lg-4 col-1"></div>
+            <div class = "col-lg-4 col-1"></div>
+            <div class = "col-lg-4 col-10">
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa-solid fa-briefcase"></i></span>
+                    <select class="form-select" id="jobs" required>
+                        <option value="">Applying for Position</option>
+                        <?php 
+                            $qry = "SELECT * FROM jobs_position";
+                            $stmt = $pdo->query($qry);
+                            foreach($stmt->fetchAll() as $row)
+                             {?>
+                                <option value="<?php echo $row['namaJobs']?>">
+                            <?php  echo $row['namaJobs'] ?>
+                                </option>
+                            <?php
+                            }
+                            ?>
+                    </select>
+                </div>
+            </div>
+            
+            <div class = "col-lg-4 col-1"></div>
+            <div class = "col-lg-4 col-1"></div>
+            <div class = "col-lg-4 col-10">
+                <div class="input-group mb-1">
+                    <label for="">Upload Foto Diri</label>
+                </div>
+                <div class="input-group">
+                    <input type="file" class="form-control" name="pic" id="pic" placeholder="Upload Foto Diri" required>
+                </div>
+                <div id="notif" class="form-text mb-1">Max File Size 10MB</div>
+            </div>
+
+            <div class = "col-lg-4 col-1"></div>
+            <div class = "col-lg-4 col-1"></div>
+            <div class = "col-lg-4 col-10">
+                <div class="input-group mb-1">
+                    <label for="">Upload CV</label>
+                </div>
+                <div class="input-group">
+                    <input type="file" class="form-control" name="file" id="file" placeholder="Upload CV" required>
+                    
+                </div>
+                <div id="notif" class="form-text mb-1">Max File Size 10MB</div>
+            </div>
+
+            <div class = "col-lg-4 col-1"></div>
+            <div class = "col-lg-4 col-1"></div>
+            <div class = "col-lg-4 col-10">
+                <button class="btn btn-primary mb-3" id="btn-upload" type="submit">Upload</button>
+            </div>
+        </div>  
+
     </div>
+            </div>
     <script>
         $(document).ready(function(){
 

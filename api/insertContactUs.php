@@ -5,7 +5,7 @@
     $email = $_POST['email'];
     $msg = $_POST['msg'];
 
-    $query = "INSERT INTO contactus (nama, email, msg) VALUES ('$name', '$email', '$msg')";
+    $query = "INSERT INTO contactus (name, email, msg) VALUES ('$name', '$email', '$msg')";
     $stmt = $pdo->prepare($query);
     $stmt->execute();
 ?>

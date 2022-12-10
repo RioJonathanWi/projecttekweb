@@ -188,7 +188,7 @@
     
 
     <div class="row row-cols-4 g-4" id="katalog">
-      <div class="col-4">
+      <div class="col-md-4 col-sm-12">
         <div class="card h-100 mb-3" id="produk">
           <img src="tas.jpg" class="card-img-top mx-auto d-block" alt="...">
           <div class="card-body">
@@ -199,7 +199,7 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-md-4 col-sm-12">
         <div class="card h-100 mb-3" id="produk">
           <img src="tas.jpg" class="card-img-top mx-auto d-block" alt="...">
           <div class="card-body">
@@ -210,7 +210,7 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-md-4 col-sm-12">
         <div class="card h-100 mb-3" id="produk">
           <img src="tas.jpg" class="card-img-top mx-auto d-block" alt="...">
           <div class="card-body">
@@ -221,7 +221,7 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-md-4 col-sm-12">
         <div class="card h-100 mb-3" id="produk">
           <img src="tas.jpg" class="card-img-top mx-auto d-block" alt="...">
           <div class="card-body">
@@ -232,7 +232,7 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-md-4 col-sm-12">
         <div class="card h-100 mb-3" id="produk">
           <img src="tas.jpg" class="card-img-top mx-auto d-block" alt="...">
           <div class="card-body">
@@ -243,7 +243,7 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-md-4 col-sm-12">
         <div class="card h-100 mb-3" id="produk">
           <img src="tas.jpg" class="card-img-top mx-auto d-block" alt="...">
           <div class="card-body">

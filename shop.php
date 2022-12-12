@@ -185,87 +185,8 @@
     </div>
   </div>
 
-<<<<<<< HEAD
-
-  <div class="row row-cols-4 g-4" id="katalog">
-    <div class="col-4">
-      <div class="card h-100 mb-3" id="produk">
-        <img src="tas.jpg" class="card-img-top mx-auto d-block" alt="...">
-        <div class="card-body">
-          <h5 class="card-title" id="nama">THE BACKPACK 1</h5>
-          <p class="card-text">Rp 100.000</p>
-          <h2 class="price-hidden d-none" id="harga">100000</h2>
-=======
-    <div class="row row-cols-4 g-4" id="katalog">
-      <div class="col-md-4 col-sm-12">
-        <div class="card h-100 mb-3" id="produk">
-          <img src="tas.jpg" class="card-img-top mx-auto d-block" alt="...">
-          <div class="card-body">
-            <h5 class="card-title" id="nama">THE BACKPACK 1</h5>
-            <p class="card-text">Rp 100.000</p>
-            <h2 class="price-hidden d-none" id="harga">100000</h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-12">
-        <div class="card h-100 mb-3" id="produk">
-          <img src="tas.jpg" class="card-img-top mx-auto d-block" alt="...">
-          <div class="card-body">
-            <h5 class="card-title" id="nama">THE BACKPACK 2</h5>
-            <p class="card-text">Rp 100.000</p>
-            <h2 class="price-hidden d-none" id="harga">100000</h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-12">
-        <div class="card h-100 mb-3" id="produk">
-          <img src="tas.jpg" class="card-img-top mx-auto d-block" alt="...">
-          <div class="card-body">
-            <h5 class="card-title" id="nama">THE BACKPACK 3</h5>
-            <p class="card-text">Rp 100.000</p>
-            <h2 class="price-hidden d-none" id="harga">100000</h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-12">
-        <div class="card h-100 mb-3" id="produk">
-          <img src="tas.jpg" class="card-img-top mx-auto d-block" alt="...">
-          <div class="card-body">
-            <h5 class="card-title" id="nama">THE BACKPACK 4</h5>
-            <p class="card-text">Rp 100.000</p>
-            <h2 class="price-hidden d-none" id="harga">100000</h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-12">
-        <div class="card h-100 mb-3" id="produk">
-          <img src="tas.jpg" class="card-img-top mx-auto d-block" alt="...">
-          <div class="card-body">
-            <h5 class="card-title" id="nama">THE BACKPACK 5</h5>
-            <p class="card-text">Rp 100.000</p>
-            <h2 class="price-hidden d-none" id="harga">100000</h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-12">
-        <div class="card h-100 mb-3" id="produk">
-          <img src="tas.jpg" class="card-img-top mx-auto d-block" alt="...">
-          <div class="card-body">
-            <h5 class="card-title" id="nama">THE BACKPACK 6</h5>
-            <p class="card-text">Rp 100.000</p>
-            <h2 class="price-hidden d-none" id="harga">100000</h2>
-          </div>
->>>>>>> dd4b61a63a3aa30e38aed173bed9f4ae48f54798
-        </div>
-      </div>
-    </div>
-
-    <div class="col-4">
+    <div class="row">
+    <div class="col-4 mt-3">
       <div class="card h-100 mb-3" id="produk">
         <img src="tas.jpg" class="card-img-top mx-auto d-block" alt="...">
         <div class="card-body">
@@ -276,7 +197,7 @@
       </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-4 mt-3">
       <div class="card h-100 mb-3" id="produk">
         <img src="tas.jpg" class="card-img-top mx-auto d-block" alt="...">
         <div class="card-body">
@@ -319,7 +240,7 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
 </body>
 
 

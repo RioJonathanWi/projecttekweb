@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,32 +21,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
         
-        @import url('https://fonts.cdnfonts.com/css/lemonmilk');
-                
-        .card img {
-            max-width: 80%;
-            height: auto;
-            margin-top: 40px;
-        }
-
-        #katalog {
-            padding: 15px;
-        }
-
-        .card {
-            background-color: #4A5358;
-        }
-
-        .card-title,
-        .card-text {
-            text-align: center;
-            color: white;
-            font-family: 'Lemon/Milk', sans-serif;
-        }
-
-        body{
-            background-color: #D8D8D8;
-        }
+       
     </style>
 </head>
 <body>
@@ -118,6 +95,44 @@
         </div>
     </div>
 
+
+    <script>
+        $(document).ready(function(){
+            $('#submit').on('click', function(){
+                event.preventDefault();
+                var name = $('#name').val();
+                var email = $('#email').val();
+                var msg = $('#msg').val();
+    
+                if(name != '' && email != '' && msg != ''){
+                    $.ajax({
+                        url: "api/insertContactUs.php",
+                        type: "POST",
+                        data: {
+                            name: name,
+                            email: email,
+                            msg: msg
+                        },
+                        success: function(result){
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: 'Message Berhasil Terkirim'
+                            })
+                            var form = document.getElementById('form-contact');
+                            form.reset();
+                        }
+                    })
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Gagal',
+                        text: 'Mohon isi kelengkapan data',
+                    })
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,26 @@
+@import url('https://fonts.cdnfonts.com/css/lemonmilk');
+                
+.card img {
+    max-width: 80%;
+    height: auto;
+    margin-top: 40px;
+}
+
+#katalog {
+    padding: 15px;
+}
+
+.card {
+    background-color: #4A5358;
+}
+
+.card-title,
+.card-text {
+    text-align: center;
+    color: white;
+    font-family: 'Lemon/Milk', sans-serif;
+}
+
+/* body{
+    background-color: #D8D8D8;
+} */

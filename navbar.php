@@ -19,7 +19,7 @@
                 <a class="nav-link active" href="shop.php">SHOP</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="contactus.php" >CONTACT US</a>
+                <a class="nav-link active" href="index.php" >CONTACT US</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="jobForm.php" >HIRING NOW!</a>

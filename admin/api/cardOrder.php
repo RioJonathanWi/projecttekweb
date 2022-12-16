@@ -13,7 +13,7 @@
         <i class="fa-solid fa-exclamation fa-7x logo" style="color: red; margin-bottom: 20px; margin-top: 10px;"></i>
         <hr style="width:100%;text-align:left;margin-left:0; height: 3px;">
         <div class="text">
-            <h3>'.$row['nama_produk'].'</h3>
+            <h3>'.$row['p_name'].'</h3>
             <h5>Quantity: '.$row['quantity'].'</h5>
             <h5>Price per Item: '.$row['price'].'</h5>
             <h5>Total Price: IDR '.$total.'</h5>

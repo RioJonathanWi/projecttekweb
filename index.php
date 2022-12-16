@@ -43,7 +43,7 @@
             </div>
             <div style="height: 20vh">
                 <button class="button-title" style="margin-left: 100px;"><a class="get" href="shop.php">GET YOUR OWN</a></button>
-                <button class="button-title text2"><a class="get" href="#">CATALOG</a></button>
+                <button class="button-title text2"><a class="get" href="#katalog">CATALOG</a></button>
             </div>
         </div>
     </div>
@@ -58,11 +58,33 @@
                 <div class="row row-cols-4 g-4" id="katalog">
                     <div class="col-4">
                         <div class="card h-100 mb-3" id="produk">
-                            <img src="assets/tas.jpg" class="card-img-top mx-auto d-block" alt="...">
+                            <img src="assets/baju.jpg" class="card-img-top mx-auto d-block" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title" id="nama">THE BACKPACK 1</h5>
-                                <p class="card-text">Rp 100.000</p>
-                                <h2 class="price-hidden d-none" id="harga">100000</h2>
+                                <h5 class="card-title" id="nama">Baju</h5>
+                                <p class="card-text">Rp 30.000</p>
+                                <h2 class="price-hidden d-none" id="harga">30000</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="card h-100 mb-3" id="produk">
+                            <img src="assets/celana.jpg" class="card-img-top mx-auto d-block" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title" id="nama">Celana</h5>
+                                <p class="card-text">Rp 20.000</p>
+                                <h2 class="price-hidden d-none" id="harga">20000</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="card h-100 mb-3" id="produk">
+                            <img src="assets/tenda.jpg" class="card-img-top mx-auto d-block" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title" id="nama">Tenda</h5>
+                                <p class="card-text">Rp 25.000</p>
+                                <h2 class="price-hidden d-none" id="harga">25000</h2>
                             </div>
                         </div>
                     </div>
@@ -71,53 +93,31 @@
                         <div class="card h-100 mb-3" id="produk">
                             <img src="assets/tas.jpg" class="card-img-top mx-auto d-block" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title" id="nama">THE BACKPACK 2</h5>
-                                <p class="card-text">Rp 100.000</p>
-                                <h2 class="price-hidden d-none" id="harga">100000</h2>
+                                <h5 class="card-title" id="nama">Tas</h5>
+                                <p class="card-text">Rp 15.000</p>
+                                <h2 class="price-hidden d-none" id="harga">15000</h2>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-4">
                         <div class="card h-100 mb-3" id="produk">
-                            <img src="assets/tas.jpg" class="card-img-top mx-auto d-block" alt="...">
+                            <img src="assets/sepatu.jpg" class="card-img-top mx-auto d-block" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title" id="nama">THE BACKPACK 3</h5>
-                                <p class="card-text">Rp 100.000</p>
-                                <h2 class="price-hidden d-none" id="harga">100000</h2>
+                                <h5 class="card-title" id="nama">Sepatu</h5>
+                                <p class="card-text">Rp 20.333</p>
+                                <h2 class="price-hidden d-none" id="harga">20333</h2>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-4">
                         <div class="card h-100 mb-3" id="produk">
-                            <img src="assets/tas.jpg" class="card-img-top mx-auto d-block" alt="...">
+                            <img src="assets/botol.jpg" class="card-img-top mx-auto d-block" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title" id="nama">THE BACKPACK 4</h5>
-                                <p class="card-text">Rp 100.000</p>
-                                <h2 class="price-hidden d-none" id="harga">100000</h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-4">
-                        <div class="card h-100 mb-3" id="produk">
-                            <img src="assets/tas.jpg" class="card-img-top mx-auto d-block" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title" id="nama">THE BACKPACK 5</h5>
-                                <p class="card-text">Rp 100.000</p>
-                                <h2 class="price-hidden d-none" id="harga">100000</h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-4">
-                        <div class="card h-100 mb-3" id="produk">
-                            <img src="assets/tas.jpg" class="card-img-top mx-auto d-block" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title" id="nama">THE BACKPACK 6</h5>
-                                <p class="card-text">Rp 100.000</p>
-                                <h2 class="price-hidden d-none" id="harga">100000</h2>
+                                <h5 class="card-title" id="nama">Botol</h5>
+                                <p class="card-text">Rp 15.000</p>
+                                <h2 class="price-hidden d-none" id="harga">15000</h2>
                             </div>
                         </div>
                     </div>

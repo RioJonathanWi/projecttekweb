@@ -315,7 +315,8 @@ button:hover{
     }
 
     .social-media{
-        height:5vh;
+        padding: 10px;
+        height:10vh;
         overflow-y: hidden;
     }
 

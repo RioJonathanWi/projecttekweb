@@ -28,6 +28,11 @@
             color: white;
         }
 
+        .navbar {
+        background-color: #D8D8D8;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+        }
+
         .nav-link{
             /* font-family: 'Lemon/Milk light', sans-serif; */
             font-family: "Poppins", sans-serif;
@@ -37,11 +42,14 @@
             padding: 10px;
         }
 
+        .active:hover {
+        font-weight: bold;
+        }
     </style>
   </head>
   <body>
     <?php include 'navbar.php' ?>
-    <div class="container-fluid mt-4 w-100 vh-100 d-flex flex-column justify-content-center align-items-center" >
+    <div class="container-fluid mt-5 w-100 vh-100 d-flex flex-column justify-content-center align-items-center" >
         <h2 class="text-center ">Job Application</h2>
         <h5 class="text-center">Please complete the form below to apply for position with us.</h5>
         <hr>

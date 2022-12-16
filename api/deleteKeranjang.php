@@ -5,23 +5,23 @@
 
     $id = $_POST['id'];
 
-    $stmt2 = $conn->query("SELECT * FROM keranjang WHERE id = '$id'")->fetchAll();
+    $stmt2 = $pdo->query("SELECT * FROM keranjang WHERE id = '$id'")->fetchAll();
 
     foreach($stmt2 as $row){
         $qty = $row['quantity'];
         if ($qty > 1) {
             $qry = "UPDATE keranjang SET quantity=quantity-1 WHERE id = ?"; 
-            $stmt = $conn->prepare($qry);
+            $stmt = $pdo->prepare($qry);
             $stmt->execute([$id]);
             
         } else if ($qty == 1) {
             $qry = "DELETE FROM keranjang WHERE id = ?"; 
-            $stmt = $conn->prepare($qry);
+            $stmt = $pdo->prepare($qry);
             $stmt->execute([$id]);
         }
     }
 
-    $stmt3 = $conn->query("SELECT * FROM keranjang")->fetchAll();
+    $stmt3 = $pdo->query("SELECT * FROM keranjang")->fetchAll();
 
     foreach($stmt3 as $row){
         $output .='

@@ -27,6 +27,9 @@
         $qry3 = "INSERT INTO orders SET p_name = ?, quantity = ?, price = ?, buyer_id = ?";
         $stmt4 = $conn->prepare($qry3);
         $stmt4->execute([$name, $qty, $price, $id]);
+        $qry8 = "INSERT INTO orders_data SET p_name = ?, quantity = ?, price = ?, buyer_id = ?";
+        $stmt8 = $conn->prepare($qry8);
+        $stmt8->execute([$name, $qty, $price, $id]);
     }
 
     $qry4 = "DELETE FROM keranjang";

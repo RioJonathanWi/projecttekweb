@@ -157,7 +157,7 @@
                                 <div class="row">
                                     <div class="col-8 col-lg-7">
                                         <i class="fa-solid fa-basket-shopping"></i>
-                                        <h6 class="d-inline item-name ms-lg-2"><?php echo $row3['nama_produk']?></h6>
+                                        <h6 class="d-inline item-name ms-lg-2"><?php echo $row3['p_name']?></h6>
                                     </div>
                                 </div>
                                 <hr>

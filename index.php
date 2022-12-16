@@ -33,7 +33,7 @@
 </head>
 
 <body>
-    <?php include 'navbar.html'?>
+    <?php include 'navbar.php'?>
 
     <div class="bg mr-auto ml-auto">
         <div class="container-fluid">

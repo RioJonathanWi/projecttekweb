@@ -1,3 +1,6 @@
+
+
+
 <nav class="navbar navbar-expand-lg navbar-light ">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -10,10 +13,10 @@
                 <a href="index.php"><img src="assets/logo.png" alt="logo" width="110px" height="50px"></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="shop.php">SHOP</a>
+                <a class="nav-link active" href="index.php" >HOME</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="catalog.html" >CATALOG</a>
+                <a class="nav-link active" href="shop.php">SHOP</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="contactus.php" >CONTACT US</a>

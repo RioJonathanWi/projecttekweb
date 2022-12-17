@@ -1,8 +1,9 @@
 <?php
+require 'connect.php';
     session_start();
     $name = $_SESSION['name'];
     $status = $_SESSION['status'];
-    if(isset($_SESSION['login'])){
+    if(isset($_SESSION['login']) && $status != ''){
         
     }else{
         header('location: login.php');
@@ -22,7 +23,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/styleAccepted.css">
+    <link rel="stylesheet" href="styles/styleOrder.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -37,25 +38,36 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.js"></script>
 
     <title>Admin</title>
+
     <style>
+        @import url('https://fonts.cdnfonts.com/css/lemonmilk');
+
+        .container{
+            font-family: 'Lemon/Milk', sans-serif;
+            color: white;
+            max-width: 600px;
+            text-align: center;
+        }
+       
         @media screen and (max-width: 575px){
             .nav-item{
                 margin: 10px;
             }
         }
+
     </style>
   </head>
   <body>
     
-<div class="container-fluid">
-    <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <a href="home.php" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-5 d-none d-sm-inline mt-4">Menu</span>
+  <div class="container-fluid overflow-hidden">
+    <div class="row vh-100 overflow-auto">
+        <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-dark d-flex sticky-top">
+            <div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white">
+                <a href="/" class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5">Menu</span>
                 </a>
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li class="nav-item">
+                <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start" id="menu">
+                <li class="nav-item">
                         <a href="home.php" class="nav-link align-middle px-0">
                         <i class="fas fa-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                         </a>
@@ -85,13 +97,11 @@
                         <i class="fa-solid fa-cart-plus"></i><span class="ms-1 d-none d-sm-inline"></span>Accepted Orders</a>
                     </li>
                 </ul>
-                <hr>
-                <div class="dropdown pb-4">
+                <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-solid fa-square-user"></i>
                         <span class="d-none d-sm-inline mx-1"><?php echo $name ?></span>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                     <?php if ($status == 'keyadmin'){?>
                             <li><a class="dropdown-item" href="newAdmin.php">Add Admin</a></li>
                        <?php } ?>
@@ -103,52 +113,102 @@
                 </div>
             </div>
         </div>
-        <div class="col py-3 content">
-            <div class="title">
-                <h1 style="color: white;">Accepted Orders</h1>
-            </div>
+        <div class="col d-flex flex-column h-sm-100 content">
             <div class="container">
-                <div class="table-responsive" id="tableDiv">
+                <h2 class="mt-3 mb-4">Add New Admin</h2>
+                <div class="mb-3">
+                    <label for="namaAdmin" class="form-label">Admin Name</label>
+                    <input type="text" class="form-control" id="namaadmin" placeholder="Nama Admin">
                 </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Username">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Default Password</label>
+                    <input type="text" class="form-control" id="password" placeholder="Default Password">
+                </div>
+                <div class="mb-3">
+                    <label for="namaAdmin" class="form-label">Status</label>
+                    <input type="text" class="form-control" id="status" placeholder="Status ('keyadmin') *leave it blank if not keyadmin">
+                </div>
+                <button class="btn mt-3" id="submit" style="width: 100%">Submit</button>
             </div>
         </div>
     </div>
 </div>
+
+<?php
+    $stmt = $pdo->query("SELECT * FROM orders o JOIN data_pembeli dp ON dp.id = o.buyer_id ")->fetchAll();
+    
+    foreach($stmt as $row){?>
+        <div class="modal fade" id="<?php echo str_replace(' ', '', $row['nama']);?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Orders Detail</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="info" style="text-align: center;">
+                    <h4 class="mt-2">Nama</h4>
+                    <p class="mt-2"><?php echo $row['nama']?></p>
+                    <h4 class="mt-2">Alamat</h4>   
+                    <p class="mt-2"><?php echo $row['alamat']?></p>
+                    <h4 class="mt-2">Nomor Telepon Pelanggan</h4>
+                    <p class="mt-2"><?php echo $row['no_telp']?></p>
+                </div>
+                <br>
+            </div>
+            </div>
+        </div>
+        </div>
+
+    <?php }?>
+
+
     <script>
         $(document).ready(function(){
-            $('#logTable').DataTable({
-            });
-        });
+            
+            $("#submit").on("click", function(){
+                var nama = $("#namaadmin").val();
+                var username = $("#username").val();
+                var password = $("#password").val();
+                var status = $("#status").val();
 
-        var updateTable = setInterval(function(){
-            $.ajax({
-                type: "POST",
-                url: "api/acceptedOrder.php",
-                success: function(table){
-                    document.getElementById("tableDiv").innerHTML = table;
-                }
-            })
-        }, 1000);
-
-        function changeStatus(id){
-            $.ajax({
-                type:"POST",
-                url: "api/changeStatus.php",
-                data: {
-                    id_order: id
-                },
-                success: function(status){
-                        if(status == 1){
+                $.ajax({
+                    type: "POST",
+                    url: "api/insertAdmin.php",
+                    data: {
+                        nama: nama,
+                        username: username,
+                        password: password,
+                        status: status
+                    },
+                    success: function(result){
+                        if (result == 1) {
                             Swal.fire({
                             icon: 'success',
-                            title: 'Status has been changed',
+                            title: 'Data has been inputed!',
+                            showConfirmButton: true,
+                            timer: 1500
+                        })
+                        } else {
+                            Swal.fire({
+                            icon: 'error',
+                            title: 'There has been an error!',
                             showConfirmButton: true,
                             timer: 1500
                         })
                         }
-                }
+                    }
+                })
             })
-        }
+
+        
+
+        });
+        
 
         
 

@@ -9,7 +9,7 @@
     }else{
         if($stmt->execute([$id])){
             $result = 1;
-            $qry = $pdo->prepare("DELETE FROM orders WHERE id=?");
+            $qry = $pdo->prepare("DELETE FROM orders WHERE id_order=?");
             $qry->execute([$id]);
         }else{
             $result = 2;

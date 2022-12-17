@@ -9,6 +9,7 @@ $card = "";
         <h5 class="card-title">'.$row['nama'].'</h5>
         <h6 class="card-subtitle mb-2 text-muted">'.$row['email'].'</h6>
         <p class="card-text">'.$row['message'].'</p>
+        <button class="btn btn-danger" onclick="deleteData('.$row['id'].')">Delete</button>
         </div>
         </div>';
     } 

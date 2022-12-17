@@ -49,7 +49,7 @@
   </head>
   <body>
     <?php include 'navbar.php' ?>
-    <div class="container-fluid w-100 vh-100 d-flex flex-column justify-content-center align-items-center" style="margin-top: 100px;" >
+    <div class="container-fluid w-100 vh-100 d-flex flex-column justify-content-center align-items-center" style="margin-top: 50px;" >
         <h2 class="text-center ">Job Application</h2>
         <h5 class="text-center">Please complete the form below to apply for position with us.</h5>
         <hr>

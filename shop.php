@@ -253,42 +253,6 @@
         })
       })
 
-      // $('#submitBtn').on('click', function(){
-      //   event.preventDefault();
-
-        
-      //   var nama = $('#namaPembeli').val();
-      //   var alamat = $('#alamatPembeli').val();
-      //   var no_telp = $('#telpPembeli').val();
-
-      //   if (nama != '' && alamat != '' && no_telp != ''){
-      //     $('#isiDataModal').modal('hide')
-      //     $.ajax({
-      //         url: "api/prosesData.php",
-      //         method: "POST",
-      //         data: {
-      //             nama: nama,
-      //             alamat: alamat,
-      //             no_telp: no_telp
-      //         },
-      //         success:function(result){
-      //           if (result == 1) {
-      //             Swal.fire({
-      //             icon: 'success',
-      //             text: 'Pembelian Berhasil!'
-      //           })
-      //           }
-      //         } 
-                
-      //     })
-      //   } else {
-      //     Swal.fire({
-      //       icon: 'warning',
-      //       text: 'Silahkan lengkapi data terlebih dahulu!'
-      //     })
-      //   }
-        
-      // });
 
     })
 

@@ -38,6 +38,13 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.js"></script>
 
     <title>Admin</title>
+    <style>
+        @media screen and (max-width: 575px){
+            .nav-item{
+                margin: 10px;
+            }
+        }
+    </style>
   </head>
   <body>
     
@@ -85,7 +92,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                         <?php if ($status == 'keyadmin'){?>
-                            <li><a class="dropdown-item" href="#">Add Admin</a></li>
+                            <li><a class="dropdown-item" href="newAdmin.php">Add Admin</a></li>
                        <?php } ?>
                         <li>
                             <hr class="dropdown-divider">

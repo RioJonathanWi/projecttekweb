@@ -26,7 +26,25 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/styles.css">
-    <title>Mimin</title>
+    <title>Admin</title>
+
+    <style>
+        @media screen and (max-width: 575px){
+            .nav-item{
+                margin: 10px;
+            }
+
+            
+        }
+
+        @media screen and (max-width: 992px){
+            .icon{
+                display: none;
+            }
+
+            
+        }
+    </style>
   </head>
   <body>
     
@@ -40,32 +58,32 @@
                 <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start" id="menu">
                 <li class="nav-item">
                         <a href="home.php" class="nav-link align-middle px-0">
-                        <i class="fas fa-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                        <i class="fas fa-house"></i> <span class="ms-1 d-none d-sm-inline text" style="display: none;">Home</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="order.php" class="nav-link px-0 align-middle">
-                        <i class="fa-solid fa-cart-shopping"></i><span class="ms-1 d-none d-sm-inline">Orders</span></a>
+                        <i class="fa-solid fa-cart-shopping"></i><span class="ms-1 d-none d-sm-inline text">Orders</span></a>
                     </li>
                     <li class="nav-item">
                         <a href="jobs.php" class="nav-link px-0 align-middle">
-                        <i class="fa-solid fa-note-sticky"></i> <span class="ms-1 d-none d-sm-inline">Jobs</span> </a>
+                        <i class="fa-solid fa-note-sticky"></i> <span class="ms-1 d-none d-sm-inline text">Jobs</span> </a>
                     </li>
                     <li class="nav-item">
                         <a href="stockBarang.php" class="nav-link px-0 align-middle">
-                        <i class="fa-solid fa-floppy-disk"></i> <span class="ms-1 d-none d-sm-inline">Stock</span> </a>
+                        <i class="fa-solid fa-floppy-disk"></i> <span class="ms-1 d-none d-sm-inline text">Stock</span> </a>
                     </li>
                     <li class="nav-item">
                         <a href="message.php" class="nav-link px-0 align-middle">
-                        <i class="fa-solid fa-message"></i><span class="ms-1 d-none d-sm-inline"></span>Message</a>
+                        <i class="fa-solid fa-message"></i><span class="ms-1 d-none d-sm-inline text">Message</span></a>
                     </li>
                     <li class="nav-item">
                         <a href="applied.php" class="nav-link px-0 align-middle">
-                        <i class="fa-solid fa-square-check"></i><span class="ms-1 d-none d-sm-inline"></span>Accepted Applicants</a>
+                        <i class="fa-solid fa-square-check"></i><span class="ms-1 d-none d-sm-inline text" style="margin-top: -10px;">Accepted Applicants</span></a>
                     </li>
                     <li class="nav-item">
                         <a href="acceptedOrder.php" class="nav-link px-0 align-middle">
-                        <i class="fa-solid fa-cart-plus"></i><span class="ms-1 d-none d-sm-inline"></span>Accepted Orders</a>
+                        <i class="fa-solid fa-cart-plus"></i><span class="ms-1 d-none d-sm-inline text">Accepted Orders</span></a>
                     </li>
                 </ul>
                 <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
@@ -74,7 +92,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                         <?php if ($status == 'keyadmin'){?>
-                            <li><a class="dropdown-item" href="#">Add Admin</a></li>
+                            <li><a class="dropdown-item" href="newAdmin.php">Add Admin</a></li>
                        <?php } ?>
                         <li>
                             <hr class="dropdown-divider">
@@ -93,7 +111,7 @@
                     <div class="row p-3">
                         <div class="box order-lg-2 col-12 col-lg-6 col-xl-2 d-flex justify-content-center align-items-center"
                             style="background-color:#B6F0B0; border-radius: 15px;">
-                            <i class="fas fa-user fa-2xl"></i>
+                            <i class="fas fa-user fa-2xl icon"></i>
                         </div>
                         <div
                             class="box-2 mt-3 mt-lg-0 order-lg-1 col-12 col-lg-6 col-xl-10 d-flex flex-column  justify-content-around">
@@ -108,7 +126,7 @@
                     <div class="row p-3">
                         <div class="box order-lg-2 col-12 col-lg-6 col-xl-2 d-flex justify-content-center align-items-center"
                             style="background-color:#3C7B8E; border-radius: 15px;">
-                            <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #183153;"></i>
+                            <i class="fa-solid fa-cart-shopping fa-2xl icon" style="color: #183153;"></i>
                         </div>
                         <div
                             class="box-2 mt-3 mt-lg-0 order-lg-1 col-12 col-lg-6 col-xl-10 d-flex flex-column  justify-content-around">

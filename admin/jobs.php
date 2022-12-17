@@ -2,6 +2,7 @@
     require 'connect.php';  
     session_start();
     $name = $_SESSION['name'];
+    $status = $_SESSION['status'];
     if(isset($_SESSION['login'])){
         
     }else{
@@ -83,11 +84,13 @@
                         <span class="d-none d-sm-inline mx-1"><?php echo $name ?></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <?php if ($status == 'keyadmin'){?>
+                            <li><a class="dropdown-item" href="#">Add Admin</a></li>
+                       <?php } ?>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        <li><a class="dropdown-item" href="logout.php">Sign out</a></li>
                     </ul>
                 </div>
             </div>
@@ -130,6 +133,7 @@
                     <h4 class="mt-2">Job Position yang Diinginkan</h4>
                     <p class="mt-2"><?php echo $row['job_id']?></p>
                 <a class="mt-2" href="uploads/CV<?php echo $row['fileCV']?>">Curriculum Vitae</a>
+                <div id="emailHelp" class="form-text">Klik untuk melihat CV!</div>
                 </div>
                 <br>
                 

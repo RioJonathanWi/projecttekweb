@@ -2,6 +2,7 @@
     require 'connect.php';
     session_start();
     $name = $_SESSION['name'];
+    $status = $_SESSION['status'];
     if(isset($_SESSION['login'])){
         
     }else{
@@ -72,11 +73,13 @@
                         <span class="d-none d-sm-inline mx-1"><?php echo $name ?></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <?php if ($status == 'keyadmin'){?>
+                            <li><a class="dropdown-item" href="#">Add Admin</a></li>
+                       <?php } ?>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        <li><a class="dropdown-item" href="logout.php">Sign out</a></li>
                     </ul>
                 </div>
             </div>

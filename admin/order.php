@@ -1,6 +1,8 @@
 <?php
+require 'connect.php';
     session_start();
     $name = $_SESSION['name'];
+    $status = $_SESSION['status'];
     if(isset($_SESSION['login'])){
         
     }else{
@@ -82,11 +84,13 @@
                         <span class="d-none d-sm-inline mx-1"><?php echo $name ?></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <?php if ($status == 'keyadmin'){?>
+                            <li><a class="dropdown-item" href="#">Add Admin</a></li>
+                       <?php } ?>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        <li><a class="dropdown-item" href="logout.php">Sign out</a></li>
                     </ul>
                 </div>
             </div>
@@ -101,6 +105,36 @@
         </div>
     </div>
 </div>
+
+<?php
+    $stmt = $pdo->query("SELECT * FROM orders o JOIN data_pembeli dp ON dp.id = o.buyer_id ")->fetchAll();
+    
+    foreach($stmt as $row){?>
+        <div class="modal fade" id="<?php echo str_replace(' ', '', $row['nama']);?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Orders Detail</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="info" style="text-align: center;">
+                    <h4 class="mt-2">Nama</h4>
+                    <p class="mt-2"><?php echo $row['nama']?></p>
+                    <h4 class="mt-2">Alamat</h4>   
+                    <p class="mt-2"><?php echo $row['alamat']?></p>
+                    <h4 class="mt-2">Nomor Telepon Pelanggan</h4>
+                    <p class="mt-2"><?php echo $row['no_telp']?></p>
+                </div>
+                <br>
+            </div>
+            </div>
+        </div>
+        </div>
+
+    <?php }?>
+
+
     <script>
         $(document).ready(function(){
             // var xmlhttp = new xXMLHttpRequest();

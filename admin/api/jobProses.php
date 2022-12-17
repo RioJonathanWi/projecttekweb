@@ -31,8 +31,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $allowed = array('jpg','png','jpeg', 'pdf', 'docx');
 
-    $fileDestination = 'D:\xampp\htdocs\projecttekweb\uploads\fotoDiri';
-    $fileDestination2 = 'D:\xampp\htdocs\projecttekweb\uploads\CV';
+    $fileDestination = 'D:\xampp\htdocs\projecttekweb\admin\uploads\fotoDiri';
+    $fileDestination2 = 'D:\xampp\htdocs\projecttekweb\admin\uploads\CV';
 
     if(!in_array($filetype1, $allowed) || !in_array($filetype2, $allowed)){
         $message = 'Tipe file yang dapat digunakan adalah (.jpg, .png, .jpeg, .pdf, .docx)';

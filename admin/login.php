@@ -27,9 +27,6 @@
         <div class="login-form">
             <input type="text" id="email" placeholder="Username">
             <input type="password" id="password"  placeholder="Password">
-            <a href="home.php">
-                Forgot you password?
-            </a>
             <button type="button" class="btn login-btn container-fluid btn-light" id="Login" style="background:black;color:white">Login</button>
         </div>
     </div>

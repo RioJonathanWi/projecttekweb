@@ -1,6 +1,8 @@
 <?php
+    require 'connect.php';
     session_start();
     $name = $_SESSION['name'];
+    $status = $_SESSION['status'];
     if(isset($_SESSION['login'])){
         
     }else{
@@ -61,7 +63,7 @@
                         <i class="fa-solid fa-note-sticky"></i> <span class="ms-1 d-none d-sm-inline">Jobs</span> </a>
                     </li>
                     <li class="nav-item">
-                        <a href="stock.php" class="nav-link px-0 align-middle">
+                        <a href="stockBarang.php" class="nav-link px-0 align-middle">
                         <i class="fa-solid fa-floppy-disk"></i> <span class="ms-1 d-none d-sm-inline">Stock</span> </a>
                     </li>
                     <li class="nav-item">
@@ -84,7 +86,9 @@
                         <span class="d-none d-sm-inline mx-1"><?php echo $name ?></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <?php if ($status == 'keyadmin'){?>
+                            <li><a class="dropdown-item" href="#">Add Admin</a></li>
+                       <?php } ?>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

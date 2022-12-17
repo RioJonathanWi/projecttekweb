@@ -32,6 +32,7 @@ function test_input($data) {
                 $data = $loginstmt->fetch();
                 $_SESSION['name'] = $data['name'];
                 $_SESSION['login'] = $data['email'];
+                $_SESSION['status'] = $data['status'];
                 $result = 1;
             } else if ($loginstmt->rowCount() == 0) {
                     //email or password is wrong
